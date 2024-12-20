@@ -21,8 +21,8 @@ export abstract class State<Schemes extends ClassicScheme, K extends any[]> {
 }
 
 export function getSourceTarget(initial: SocketData, socket: SocketData) {
-  const forward = initial.side === 'output' && socket.side === 'input'
-  const backward = initial.side === 'input' && socket.side === 'output'
+  const forward = (initial.side === 'output' && socket.side === 'input') || (initial.side === 'output' && socket.side === 'output') 
+  const backward = (initial.side === 'input' && socket.side === 'output') || (initial.side === 'input' && socket.side === 'input')
   const [source, target] = forward
     ? [initial, socket]
     : backward
