@@ -2,7 +2,7 @@ node_modules
 .idea/
 .vscode/
 npm-debug.log
-dist
+# dist
 docs
 /coverage
 .rete-cli
