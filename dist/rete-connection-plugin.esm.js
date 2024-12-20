@@ -165,8 +165,8 @@ var State = /*#__PURE__*/function () {
   }]);
 }();
 function getSourceTarget(initial, socket) {
-  var forward = initial.side === 'output' && socket.side === 'input';
-  var backward = initial.side === 'input' && socket.side === 'output';
+  var forward = initial.side === 'output' && socket.side === 'input' || initial.side === 'output' && socket.side === 'output';
+  var backward = initial.side === 'input' && socket.side === 'output' || initial.side === 'input' && socket.side === 'input';
   var _ref = forward ? [initial, socket] : backward ? [socket, initial] : [],
     _ref2 = _slicedToArray(_ref, 2),
     source = _ref2[0],
